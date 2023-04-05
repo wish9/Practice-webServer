@@ -13,8 +13,12 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation ('org.springframework.boot:spring-boot-starter-web') {
+		exclude module: 'spring-boot-starter-tomcat' // Tomcat 제외시키기
+	}
+	implementation ('org.springframework.boot:spring-boot-starter-jetty') // Jetty 적용
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 tasks.named('test') {
